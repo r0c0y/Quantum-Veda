@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import { MoveRight, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
 
-function cn(...inputs) {
-    return twMerge(clsx(inputs));
+function cn(...classes) {
+    return classes.filter(Boolean).join(' ');
 }
 
 export default function Navbar() {

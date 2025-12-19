@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Telescope, Atom, Globe, FlaskConical } from "lucide-react";
+import { Rocket, Atom, Globe, FlaskConical } from "lucide-react";
 
 export default function About() {
     const values = [
         {
-            icon: <Telescope className="text-soft-teal" />,
+            icon: <Rocket className="text-soft-teal" />,
             title: "Exploration",
             desc: "Pushing the boundaries of what high schoolers can achieve in aerospace."
         },
