@@ -102,7 +102,7 @@ export default function Newsletter() {
               animate={{ opacity: 1, y: 0 }}
               className="mb-8 text-soft-teal font-medium"
             >
-              ✓ Welcome aboard! Check your inbox for confirmation.
+              🚀 Telemetry received! You're now part of Mission Control.
             </motion.p>
           )}
 

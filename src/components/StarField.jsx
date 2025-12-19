@@ -31,8 +31,11 @@ function Stars(props) {
 
 export default function StarField() {
     return (
-        <div className="absolute inset-0 z-0">
-            <Canvas camera={{ position: [0, 0, 1] }}>
+        <div className="absolute inset-0 z-0 bg-black">
+            <Canvas
+                camera={{ position: [0, 0, 1] }}
+                style={{ background: '#000000' }}
+            >
                 <Stars />
             </Canvas>
         </div>
