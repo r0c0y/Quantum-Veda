@@ -111,28 +111,28 @@ export default function MediaGallery() {
   return (
     <section
       id="media"
-      className="py-24 px-6 bg-gray-50 overflow-hidden min-h-screen"
+      className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gray-50 overflow-hidden min-h-screen"
     >
-      <div className="max-w-7xl mx-auto flex flex-col gap-12">
+      <div className="max-w-7xl mx-auto flex flex-col gap-8 sm:gap-12">
         {/* Header & Toggles */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8">
           <div>
-            <span className="text-soft-teal font-mono tracking-widest uppercase text-sm mb-4 block">
+            <span className="text-soft-teal font-mono tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 block">
               Archive
             </span>
-            <h2 className="text-4xl md:text-6xl font-display font-black text-near-black">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black text-near-black">
               Media & Insights
             </h2>
           </div>
 
           {/* Toggle Switch */}
-          <div className="flex bg-white p-1 rounded-2xl shadow-sm border border-gray-200">
+          <div className="flex bg-white p-1 rounded-2xl shadow-sm border border-gray-200 w-full md:w-auto">
             <button
               onClick={() => {
                 playClick();
                 setActiveTab("videos");
               }}
-              className={`px-6 py-3 rounded-xl font-bold transition-all text-sm md:text-base ${activeTab === "videos"
+              className={`flex-1 md:flex-none px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold transition-all text-sm md:text-base ${activeTab === "videos"
                 ? "bg-near-black text-white shadow-lg"
                 : "text-gray-400 hover:text-near-black"
                 }`}
@@ -144,7 +144,7 @@ export default function MediaGallery() {
                 playClick();
                 setActiveTab("articles");
               }}
-              className={`px-6 py-3 rounded-xl font-bold transition-all text-sm md:text-base ${activeTab === "articles"
+              className={`flex-1 md:flex-none px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold transition-all text-sm md:text-base ${activeTab === "articles"
                 ? "bg-near-black text-white shadow-lg"
                 : "text-gray-400 hover:text-near-black"
                 }`}
@@ -167,24 +167,24 @@ export default function MediaGallery() {
                 transition={{ duration: 0.3 }}
                 className="w-full"
               >
-                <div className="flex items-center justify-end mb-6 gap-2">
+                <div className="hidden sm:flex items-center justify-end mb-6 gap-2">
                   <button
                     onClick={() => {
                       playClick();
                       scroll(videoScrollRef, "left");
                     }}
-                    className="p-3 border border-gray-300 bg-white rounded-full text-black hover:bg-near-black hover:text-white transition-all shadow-sm"
+                    className="p-2.5 sm:p-3 border border-gray-300 bg-white rounded-full text-black hover:bg-near-black hover:text-white transition-all shadow-sm active:scale-95"
                   >
-                    <ChevronLeft size={20} />
+                    <ChevronLeft size={18} className="sm:w-5 sm:h-5" />
                   </button>
                   <button
                     onClick={() => {
                       playClick();
                       scroll(videoScrollRef, "right");
                     }}
-                    className="p-3 border border-gray-300 bg-white rounded-full text-black hover:bg-near-black hover:text-white transition-all shadow-sm"
+                    className="p-2.5 sm:p-3 border border-gray-300 bg-white rounded-full text-black hover:bg-near-black hover:text-white transition-all shadow-sm active:scale-95"
                   >
-                    <ChevronRight size={20} />
+                    <ChevronRight size={18} className="sm:w-5 sm:h-5" />
                   </button>
                 </div>
 
@@ -196,7 +196,7 @@ export default function MediaGallery() {
                   {videos.map((vid) => (
                     <motion.div
                       key={vid.id}
-                      className="flex-shrink-0 w-[85vw] md:w-[450px] snap-center group relative aspect-video rounded-3xl overflow-hidden shadow-xl bg-near-black cursor-pointer border-4 border-transparent hover:border-soft-teal/20 transition-all"
+                      className="flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[450px] snap-center group relative aspect-video rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl bg-near-black cursor-pointer border-2 sm:border-4 border-transparent hover:border-soft-teal/20 transition-all active:scale-[0.98]"
                       onClick={() => {
                         playClick();
                         setSelectedVideo(vid);
@@ -211,15 +211,15 @@ export default function MediaGallery() {
                         alt={vid.title}
                       />
                       {vid.isPinned && (
-                        <div className="absolute top-4 left-4 z-20 bg-soft-teal text-white text-[10px] font-bold px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-1.5 tracking-wider">
-                          <Pin size={10} fill="currentColor" /> FEATURED
+                        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 bg-soft-teal text-white text-[9px] sm:text-[10px] font-bold px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg shadow-lg flex items-center gap-1 sm:gap-1.5 tracking-wider">
+                          <Pin size={9} className="sm:w-2.5 sm:h-2.5" fill="currentColor" /> FEATURED
                         </div>
                       )}
-                      <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-                        <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border-2 border-white/30 mb-4 group-hover:scale-110 transition-transform shadow-lg group-hover:bg-soft-teal group-hover:border-soft-teal">
-                          <Play className="text-white fill-current w-8 h-8 ml-1" />
+                      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-8 text-center">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border-2 border-white/30 mb-3 sm:mb-4 group-hover:scale-110 transition-transform shadow-lg group-hover:bg-soft-teal group-hover:border-soft-teal">
+                          <Play className="text-white fill-current w-6 h-6 sm:w-8 sm:h-8 ml-0.5 sm:ml-1" />
                         </div>
-                        <h3 className="text-xl font-display font-bold text-white mb-2 line-clamp-2 drop-shadow-md">
+                        <h3 className="text-base sm:text-lg md:text-xl font-display font-bold text-white mb-2 line-clamp-2 drop-shadow-md px-2">
                           {vid.title}
                         </h3>
                       </div>
@@ -239,24 +239,24 @@ export default function MediaGallery() {
                 transition={{ duration: 0.3 }}
                 className="w-full"
               >
-                <div className="flex items-center justify-end mb-6 gap-2">
+                <div className="hidden sm:flex items-center justify-end mb-6 gap-2">
                   <button
                     onClick={() => {
                       playClick();
                       scroll(articleScrollRef, "left");
                     }}
-                    className="p-3 border border-gray-300 bg-white rounded-full text-black hover:bg-near-black hover:text-white transition-all shadow-sm"
+                    className="p-2.5 sm:p-3 border border-gray-300 bg-white rounded-full text-black hover:bg-near-black hover:text-white transition-all shadow-sm active:scale-95"
                   >
-                    <ChevronLeft size={20} />
+                    <ChevronLeft size={18} className="sm:w-5 sm:h-5" />
                   </button>
                   <button
                     onClick={() => {
                       playClick();
                       scroll(articleScrollRef, "right");
                     }}
-                    className="p-3 border border-gray-300 bg-white rounded-full text-black hover:bg-near-black hover:text-white transition-all shadow-sm"
+                    className="p-2.5 sm:p-3 border border-gray-300 bg-white rounded-full text-black hover:bg-near-black hover:text-white transition-all shadow-sm active:scale-95"
                   >
-                    <ChevronRight size={20} />
+                    <ChevronRight size={18} className="sm:w-5 sm:h-5" />
                   </button>
                 </div>
 
@@ -268,40 +268,40 @@ export default function MediaGallery() {
                   {articles.map((art) => (
                     <div
                       key={art.id}
-                      className="flex-shrink-0 w-[85vw] md:w-[400px] snap-center p-8 bg-white border border-gray-100 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 group relative flex flex-col h-[380px]"
+                      className="flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[400px] snap-center p-6 sm:p-8 bg-white border border-gray-100 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 group relative flex flex-col min-h-[340px] sm:h-[380px]"
                     >
                       <Link
                         to={`/article/${art.id}`}
                         className="absolute inset-0 z-10"
                       />
-                      <div className="flex justify-between items-start mb-8">
-                        <div className="p-3 bg-soft-teal/5 rounded-2xl text-soft-teal">
-                          <FileText className="w-6 h-6" />
+                      <div className="flex justify-between items-start mb-6 sm:mb-8">
+                        <div className="p-2.5 sm:p-3 bg-soft-teal/5 rounded-xl sm:rounded-2xl text-soft-teal">
+                          <FileText className="w-5 h-5 sm:w-6 sm:h-6" />
                         </div>
                         {art.isPinned && (
-                          <span className="bg-soft-teal text-white text-[10px] font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-md">
-                            <Pin size={10} fill="currentColor" /> PINNED
+                          <span className="bg-soft-teal text-white text-[9px] sm:text-[10px] font-bold px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg flex items-center gap-1 sm:gap-1.5 shadow-md">
+                            <Pin size={9} className="sm:w-2.5 sm:h-2.5" fill="currentColor" /> PINNED
                           </span>
                         )}
                       </div>
 
-                      <span className="text-xs font-mono text-gray-400 mb-3 block tracking-wide">
+                      <span className="text-[10px] sm:text-xs font-mono text-gray-400 mb-2 sm:mb-3 block tracking-wide">
                         {art.date}
                       </span>
-                      <h3 className="text-2xl font-bold mb-4 group-hover:text-soft-teal transition-colors line-clamp-2 leading-tight">
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 group-hover:text-soft-teal transition-colors line-clamp-2 leading-tight">
                         {art.title}
                       </h3>
                       <p className="text-gray-500 text-sm leading-relaxed mb-auto line-clamp-3">
                         {art.excerpt}
                       </p>
 
-                      <div className="mt-8 pt-6 border-t border-gray-100 flex items-center justify-between text-near-black group-hover:text-soft-teal transition-colors">
-                        <span className="text-sm font-bold">
+                      <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-100 flex items-center justify-between text-near-black group-hover:text-soft-teal transition-colors">
+                        <span className="text-xs sm:text-sm font-bold">
                           Read Full Article
                         </span>
                         <ExternalLink
-                          size={16}
-                          className="group-hover:translate-x-1 transition-transform"
+                          size={14}
+                          className="sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform"
                         />
                       </div>
                     </div>

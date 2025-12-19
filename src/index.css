@@ -14,10 +14,17 @@
   html {
     scroll-behavior: smooth;
     @apply bg-near-black text-off-white;
+    /* Prevent text size adjustment on mobile */
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
     @apply font-sans overflow-x-hidden;
+    /* Better font rendering on mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1,
@@ -28,6 +35,12 @@
   h6 {
     @apply font-bold tracking-tight;
   }
+
+  /* Improve tap targets on mobile */
+  button,
+  a {
+    -webkit-tap-highlight-color: rgba(94, 234, 212, 0.1);
+  }
 }
 
 @layer components {
@@ -37,10 +50,14 @@
 
   .btn-primary {
     @apply px-6 py-3 bg-white text-near-black font-semibold rounded-full hover:bg-white/90 transition-all active:scale-95 disabled:opacity-50;
+    /* Ensure minimum touch target size on mobile */
+    min-height: 44px;
   }
 
   .btn-outline {
     @apply px-6 py-3 border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition-all active:scale-95 disabled:opacity-50;
+    /* Ensure minimum touch target size on mobile */
+    min-height: 44px;
   }
 }
 
@@ -61,8 +78,31 @@
   scrollbar-width: none;
 }
 
+/* Scrollbar hide for horizontal scrolling galleries */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Dots pattern for Dashboard */
 .bg-dots {
   background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 24px 24px;
+}
+
+/* Smooth scrolling for anchor links */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Better focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-soft-teal);
+  outline-offset: 2px;
 }
