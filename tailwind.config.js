@@ -13,6 +13,10 @@ export default {
                 'near-black': '#1a1a1a',
                 'off-white': '#F8F9FA',
             },
+            fontFamily: {
+                'serif': ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+                'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            },
         },
     },
     plugins: [],

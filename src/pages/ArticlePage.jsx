@@ -104,7 +104,30 @@ export default function ArticlePage() {
       {/* Content */}
       <div className="max-w-3xl mx-auto px-6 -mt-8 relative z-20">
         <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
-          <div className="prose prose-lg prose-slate max-w-none font-body leading-relaxed text-gray-700 [&_iframe]:w-full [&_iframe]:rounded-xl [&_iframe]:aspect-video [&_a]:text-soft-teal [&_a]:underline">
+          <div className="
+            prose prose-lg max-w-none
+            font-serif text-lg leading-relaxed text-gray-700
+            [&_h1]:text-4xl [&_h1]:font-bold [&_h1]:mb-6 [&_h1]:mt-8 [&_h1]:text-gray-900 [&_h1]:leading-tight [&_h1]:font-sans
+            [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mb-4 [&_h2]:mt-8 [&_h2]:text-gray-800 [&_h2]:leading-snug [&_h2]:font-sans
+            [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mb-3 [&_h3]:mt-6 [&_h3]:text-gray-800 [&_h3]:font-sans
+            [&_p]:mb-5 [&_p]:leading-[1.8]
+            [&_a]:text-soft-teal [&_a]:underline [&_a]:decoration-soft-teal/30 [&_a]:underline-offset-2 [&_a]:hover:decoration-soft-teal [&_a]:transition-colors
+            [&_mark]:bg-yellow-100 [&_mark]:text-gray-900 [&_mark]:px-1 [&_mark]:rounded
+            [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-5 [&_ul]:space-y-2
+            [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-5 [&_ol]:space-y-2
+            [&_li]:leading-[1.7]
+            [&_blockquote]:border-l-4 [&_blockquote]:border-soft-teal [&_blockquote]:pl-6 [&_blockquote]:py-3 [&_blockquote]:my-8 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:bg-gray-50 [&_blockquote]:rounded-r-xl
+            [&_hr]:my-12 [&_hr]:border-t-2 [&_hr]:border-gray-100
+            [&_iframe]:w-full [&_iframe]:aspect-video [&_iframe]:rounded-xl [&_iframe]:shadow-lg [&_iframe]:my-8
+            [&_.image-wrapper]:my-8 [&_.image-wrapper]:text-center
+            [&_.document-wrapper]:my-6 [&_.document-wrapper]:p-5 [&_.document-wrapper]:bg-gradient-to-r [&_.document-wrapper]:from-gray-50 [&_.document-wrapper]:to-white [&_.document-wrapper]:border [&_.document-wrapper]:border-gray-200 [&_.document-wrapper]:rounded-xl [&_.document-wrapper]:shadow-sm
+            [&_figcaption]:text-sm [&_figcaption]:text-gray-500 [&_figcaption]:mt-3 [&_figcaption]:italic [&_figcaption]:text-center
+            [&_figure]:my-8
+            [&_img]:rounded-xl [&_img]:shadow-lg [&_img]:mx-auto
+            [&_strong]:font-semibold [&_strong]:text-gray-800
+            [&_em]:italic
+            selection:bg-soft-teal/20 selection:text-gray-900
+          ">
             {/* Rendering content with sanitization */}
             {article.content ? (
               article.content.trim().startsWith("<") ? (
